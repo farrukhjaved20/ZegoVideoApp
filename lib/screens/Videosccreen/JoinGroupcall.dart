@@ -11,7 +11,7 @@ import '../../model/constants.dart';
 final String userId = math.Random().nextInt(10000).toString();
 
 class GroupCallScreen extends StatelessWidget {
-  GroupCallScreen({Key? key}) : super(key: key);
+  GroupCallScreen({super.key});
 
   final callingIdd = TextEditingController();
   @override
@@ -100,15 +100,16 @@ class GroupCallPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: ZegoUIKitPrebuiltCall(
-      appID: Utils.appId,
-      appSign: Utils.appSignin,
-      callID: callingId,
-      userID: localUserID,
-      userName: 'user_$localUserID',
-      config: ZegoUIKitPrebuiltCallConfig.groupVideoCall()
-        ..onOnlySelfInRoom = (context) {
-          Navigator.pop(context);
-        },
-    ));
+            appID: Utils.appId,
+            appSign: Utils.appSignin,
+            callID: callingId,
+            userID: localUserID,
+            userName: 'user_$localUserID',
+            config: ZegoUIKitPrebuiltCallConfig.groupVideoCall()
+
+            // ..onOnlySelfInRoom = (context) {
+            //   Navigator.pop(context);
+            // },
+            ));
   }
 }
